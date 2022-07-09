@@ -1,7 +1,7 @@
 import { defineConfig, loadEnv } from 'vite'
 import { createProxy, wrapperEnv } from './build/utils'
 import * as path from 'path'
-import { createVitePlugins } from './build/plugin';
+import { createVitePlugins } from './build/plugin'
 
 export default defineConfig(({ command, mode }) => {
   const isBuild = command === 'build'
@@ -19,8 +19,8 @@ export default defineConfig(({ command, mode }) => {
     resolve: {
       // 设置别名
       alias: {
-        '@': path.resolve(__dirname, 'src')
-      }
+        '@': path.resolve(__dirname, 'src'),
+      },
     },
 
     css: {
@@ -28,14 +28,14 @@ export default defineConfig(({ command, mode }) => {
         // 定义全局scss变量
         scss: {
           additionalData: `@import '@/styles/variables.scss';`,
-        }
-      }
+        },
+      },
     },
 
     server: {
-      host: '0.0.0.0',  // 默认为'127.0.0.1'，如果将此设置为 `0.0.0.0` 或者 `true` 将监听所有地址，包括局域网和公网地址
-      port: VITE_PORT,  // 端口
+      host: '0.0.0.0', // 默认为'127.0.0.1'，如果将此设置为 `0.0.0.0` 或者 `true` 将监听所有地址，包括局域网和公网地址
+      port: VITE_PORT, // 端口
       proxy: createProxy(VITE_PROXY), // 代理
-    }
+    },
   }
-});
+})
