@@ -19,3 +19,9 @@ import HelloWorld from './components/HelloWorld.vue'
   margin-top: 60px;
 }
 </style>
+
+<style lang="scss">
+#app {
+  background-color: $primary-color;
+}
+</style>
