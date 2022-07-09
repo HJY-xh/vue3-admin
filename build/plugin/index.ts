@@ -14,24 +14,17 @@ import { configHtmlPlugin } from './html'
 import { unocss } from './unocss'
 
 export function createVitePlugins(viteEnv, isBuild) {
-    const plugins = [
-        vue(),
-        VueSetupExtend(),
-        configHtmlPlugin(viteEnv, isBuild),
-        unocss(),
-    ]
+  const plugins = [vue(), VueSetupExtend(), configHtmlPlugin(viteEnv, isBuild), unocss()]
 
-    if (isBuild) {
-        plugins.push(
-            visualizer({
-                open: true,
-                gzipSize: true,
-                brotliSize: true,
-            })
-        )
-    }
+  if (isBuild) {
+    plugins.push(
+      visualizer({
+        open: true,
+        gzipSize: true,
+        brotliSize: true,
+      })
+    )
+  }
 
-
-    return plugins
+  return plugins
 }
-
