@@ -13,6 +13,8 @@ import { configHtmlPlugin } from './html'
 
 import { unocss } from './unocss'
 
+import { configMockPlugin } from './mock'
+
 /**
  * * 组件库按需引入插件
  * usage: 直接使用组件,无需在任何地方导入组件
@@ -39,6 +41,10 @@ export function createVitePlugins(viteEnv, isBuild) {
         brotliSize: true,
       })
     )
+  }
+
+  if (viteEnv?.VITE_APP_USE_MOCK) {
+    plugins.push(configMockPlugin(isBuild))
   }
 
   return plugins
